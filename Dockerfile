@@ -1,6 +1,6 @@
 FROM node:8
 
-#RUN yarn config set registry https://registry.npmjs.com
+#RUN yarn config set registry https://registry.npmjs.org
 
 COPY package.json /package.json
 
