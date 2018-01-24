@@ -11,7 +11,7 @@ build:
   post_ci:
    #- docker build -t ralucavoinescu/wood-paper-thread:app .
    #- docker push ralucavoinescu/wood-paper-thread:app
-    - docker build -t raluca/wood-paper-thread:app .
+    - docker build -t cloud.canister.io:5000/raluca/wood-paper-thread:app .
     - docker push cloud.canister.io:5000/raluca/wood-paper-thread
 
 integrations:
