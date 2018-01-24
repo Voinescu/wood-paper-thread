@@ -9,15 +9,12 @@ build:
     - yarn test
 
   post_ci:
-   #- docker build -t ralucavoinescu/wood-paper-thread:app .
-   #- docker push ralucavoinescu/wood-paper-thread:app
-    - docker build -t cloud.canister.io:5000/raluca/wood-paper-thread:app .
-    - docker push cloud.canister.io:5000/raluca/wood-paper-thread
+    - docker build -t ralucavoinescu/wood-paper-thread:app .
+    - docker push ralucavoinescu/wood-paper-thread:app
 
 integrations:
-  # adding docker hub integration so that credentials are available to CI Job
   hub:
-   # - integrationName: wpt-dockerhub
-   #   type: dockerRegistryLogin
+     - integrationName: wpt-dockerhub
+       type: dockerRegistryLogin
      - integrationName: wpt-canister
        type: dockerRegistryLogin
