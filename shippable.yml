@@ -1,11 +1,7 @@
-language: node_js
-
-node_js:
-  - 8.2.1
-
 branches:
   only:
     - master
+
 env:
   global:
     - DOCKER_REPO=wood-paper-thread
@@ -13,12 +9,10 @@ env:
 
 build:
   ci:
-    - shippable_retry yarn install
-    - yarn test
-
-  post_ci:
-    - docker build -t $DOCKER_ACC/$DOCKER_REPO:$BRANCH.$BUILD_NUMBER .
-    - docker push $DOCKER_ACC/$DOCKER_REPO:$BRANCH.$BUILD_NUMBER
+    - docker build -t $DOCKER_ACC/$DOCKER_REPO:0.0.$BUILD_NUMBER .
+    - docker tag $DOCKER_ACC/$DOCKER_REPO:0.0.$BUILD_NUMBER $DOCKER_ACC/$DOCKER_REPO:latest
+    - docker push $DOCKER_ACC/$DOCKER_REPO:0.0.$BUILD_NUMBER
+    - docker push $DOCKER_ACC/$DOCKER_REPO:latest
 
 integrations:
   hub:

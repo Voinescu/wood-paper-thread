@@ -10,7 +10,8 @@ COPY package.json /package.json
 # This way it doesn't get added "here", in the current working directory, which would make docker very slow
 ENV NODE_PATH=/node_modules
 ENV PATH=$PATH:/node_modules/.bin
-# Install any needed packages
+
+# Install any needed packages and run tests
 RUN yarn
 
 # Set working directory to /app
